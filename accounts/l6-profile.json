@@ -1,0 +1,114 @@
+{
+  "account_key": "zhihu-l6",
+  "verified_at": "2026-04-28T08:20:53+08:00",
+  "verification_source": "zhihu home page / creator center card via isolated Chrome profile",
+  "browser_profile": "/Users/daxian/.openclaw/browser/zhihu-l6",
+  "cdp_port": 18806,
+  "status": "logged_in_verified",
+  "level": "Lv6",
+  "draft_count": 7,
+  "notifications": {
+    "messages": 15,
+    "private_messages": 80
+  },
+  "today_metrics_visible_on_home": {
+    "reads_or_plays": 0,
+    "new_upvotes": 0
+  },
+  "matrix_role": "primary_monetization_account",
+  "operation_notes": [
+    "Do not share browser profile with L4/current account.",
+    "Use this account for monetization-first tests after rights verification.",
+    "Avoid obvious cross-account mutual likes/comments; use natural topic linkage only."
+  ],
+  "next_verification_items": [
+    "creator center rights",
+    "good-item recommendation availability",
+    "brand task / Zhishi platform availability",
+    "Yanxuan/Yanyan author platform eligibility",
+    "content recommendation/self-promotion availability",
+    "recent 30-day traffic and violation diagnostics"
+  ],
+  "account_name": "沐晨",
+  "profile_slug": "lao-g-12-45",
+  "creator_score": 25723,
+  "rights_verified": {
+    "income_analysis": true,
+    "brand_invite": true,
+    "crowd_tasks": true,
+    "good_item_recommendation_menu_visible": true,
+    "cheese_platform": true,
+    "salt_author_platform": true,
+    "content_recommendation": true,
+    "gift_feature_menu_visible": true
+  },
+  "income": {
+    "today": 0,
+    "yesterday": 0,
+    "this_week": 0,
+    "last_week": 0,
+    "cumulative": 19.69,
+    "balance": 19.69,
+    "source": "creator income-analysis page, 2026-04-28 08:19"
+  },
+  "content_recommendation": {
+    "monthly_remaining": 3,
+    "source": "creator/recommend page, 2026-04-28 08:19"
+  },
+  "content_analytics_recent_7_days": {
+    "updated_at": "2026-04-28 07:49:50",
+    "reads": 79,
+    "plays": 0,
+    "upvotes": 0,
+    "likes": 0,
+    "comments": 0,
+    "collections": 0,
+    "shares": 0,
+    "reposts": 0,
+    "source": "creator analytics page"
+  },
+  "violation_diagnosis": {
+    "checked_at": "2026-04-28 08:20:53",
+    "account_status": "normal",
+    "recent_content_status": "no_recent_violations",
+    "source": "community/reported page"
+  },
+  "matrix_decision": {
+    "role": "primary_monetization_account",
+    "stage": "rights_rich_but_traffic_dormant",
+    "priority_order": [
+      "reactivate traffic",
+      "monetization rights audit",
+      "content recommendation for existing high-quality assets",
+      "brand/cheese task screening",
+      "salt story opportunity only if topic fit"
+    ],
+    "do_not_do": [
+      "do not mass-post immediately",
+      "do not cross-like with L4",
+      "do not copy L4 content",
+      "do not claim income channels generate revenue until backend shows data"
+    ]
+  },
+  "evening_check_2026_04_28": {
+    "checked_at": "2026-04-28T19:26:00+08:00",
+    "income": {
+      "today": 0,
+      "this_week": 0,
+      "cumulative": 19.69,
+      "balance": 19.69
+    },
+    "analytics_recent_7_days": {
+      "reads": 88,
+      "today_reads": 9,
+      "upvotes": 0,
+      "comments": 0,
+      "collections": 0,
+      "shares": 1,
+      "today_shares": 1
+    },
+    "content_recommendation_remaining": 3,
+    "assessment": "not_achieved_against_morning_plan; no verified self-recommendation/publication/task execution found by 19:26",
+    "next_action": "immediate recovery: select one existing AI-related answer for self-recommendation or prepare manual confirmation if public action required"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "matrix_version": "2026-04-30-account-advantage-split-v4",
+  "updated_at": "2026-04-30T00:15:00+08:00",
+  "revenue_target": {
+    "monthly_floor_cny": 2000,
+    "deadline": "2026-05-23",
+    "measurement": "matrix_total_revenue_with_account_attribution"
+  },
+  "core_judgement": "发挥账号各自优势，不再让 L4 和 L6 互相学对方。L4 负责判断型、转化型、证据型内容；L6 负责故事型、情绪型、悬疑型内容。",
+  "accounts": {
+    "l4_current": {
+      "account_key": "zhihu-l4-current",
+      "known_name": "不要开学秦小鱼",
+      "level": "L4_user_verified_2026-04-27",
+      "browser_profile": "/Users/daxian/.openclaw/browser/zhihu-l4",
+      "cdp_port": 18804,
+      "role": "ai_programmer_goods_monetization_account",
+      "advantages": [
+        "AI/程序员领域认知匹配，适合做明确判断",
+        "更适合承接强购买意图问题和 SEO 长尾",
+        "更适合做工具选择、效率对比、硬件取舍、云服务决策",
+        "更适合做带证据的经验型内容和好物转化"
+      ],
+      "domains": [
+        "AI 工具",
+        "程序员效率",
+        "数码硬件",
+        "云服务",
+        "开发者好物"
+      ],
+      "monetization_paths": [
+        "好物推荐佣金",
+        "AI 工具订阅/云服务转化",
+        "内容自荐",
+        "科技/AI 活动",
+        "SEO 长尾流量"
+      ],
+      "content_style": [
+        "结论先行",
+        "有使用场景",
+        "有明确推荐/不推荐边界",
+        "有取舍、有坑点、有实测或证据"
+      ],
+      "best_use_cases": [
+        "DeepSeek/Claude/Cursor/AI 编程热点中的具体决策题",
+        "程序员硬件与效率工具选择",
+        "强购买意图问题",
+        "带截图、价格、体验、对比的判断型回答"
+      ],
+      "do": [
+        "发布证据优先的真人经验回答",
+        "发布前反AI折叠检查",
+        "发布后 45 分钟冷启动",
+        "追踪点击/出单/佣金",
+        "折叠内容标题/URL/原因复盘"
+      ],
+      "do_not": [
+        "泛故事/灵异/盐言爽文",
+        "复制 L6 内容",
+        "AI模板化量产回答",
+        "空泛工具盘点",
+        "无实测证据的带货植入",
+        "行业综述型平衡分析作为主打法"
+      ],
+      "status": "profile_created_login_pending_or_to_verify"
+    },
+    "l6_muchen": {
+      "account_key": "zhihu-l6",
+      "known_name": "沐晨",
+      "level": "Lv6_verified_2026-04-28",
+      "browser_profile": "/Users/daxian/.openclaw/browser/zhihu-l6",
+      "cdp_port": 18806,
+      "role": "salt_story_suspense_monetization_account",
+      "advantages": [
+        "历史内容标签更偏故事/灵异/悬疑",
+        "已有高阅读高互动故事资产可复用",
+        "更适合靠人物、情绪、异常细节拿停留和完读",
+        "更适合承接盐言故事、内容自荐、故事热点投稿"
+      ],
+      "domains": [
+        "盐言故事",
+        "信息差悬疑",
+        "民间灵异悬疑",
+        "热点改编"
+      ],
+      "monetization_paths": [
+        "盐言投稿/签约/分发收益",
+        "内容自荐",
+        "故事热点投稿",
+        "历史故事内容资产盘活"
+      ],
+      "content_style": [
+        "开头直接冲突",
+        "人物带隐瞒和利益",
+        "细节具体",
+        "有反转和余味",
+        "更像真人口述，不像标准范文"
+      ],
+      "best_use_cases": [
+        "细思极恐经历",
+        "民间灵异故事",
+        "信息差悬疑短篇",
+        "热点改编故事",
+        "盐言试稿与故事自荐"
+      ],
+      "do": [
+        "悬疑/灵异/信息差故事",
+        "盐言热点投稿",
+        "盘活 1 万阅读/82 赞历史内容",
+        "故事内容自荐"
+      ],
+      "do_not": [
+        "硬转 AI 好物",
+        "程序员工具带货",
+        "复制 L4 内容",
+        "把故事写成工整 AI 范文"
+      ],
+      "status": "logged_in_verified"
+    }
+  },
+  "matrix_execution_rule": [
+    "L4 负责赚钱判断和转化，L6 负责情绪张力和故事变现。",
+    "同一热点如需双账号覆盖，L4 写技术/选择/转化角度，L6 写故事/人物/情绪角度。",
+    "任何账号不得模仿另一账号的弱项：L4 不装故事号，L6 不装工具号。",
+    "日报必须按账号优势复盘：L4 看点击/出单/收藏/搜索，L6 看阅读/完读感/赞藏/投稿推进。"
+  ],
+  "reporting_rules": [
+    "日报必须按账号拆分：发布、自荐、阅读、互动、点击、出单、佣金、风险",
+    "矩阵总收益必须能追溯到单账号和单内容",
+    "账号登录态混乱时先暂停运营并修复 Profile 隔离",
+    "公开发布/评论/私信/合约/提现前确认账号身份",
+    "日报必须单列折叠风险：folded_count、原因、涉及账号、已采取修复动作、下一篇发布是否通过反AI折叠闸门"
+  ],
+  "ai_folding_risk_gate": {
+    "trigger": "recent content folded because it may contain AI-created content",
+    "severity": "P0 for L4 account weight and recommendation traffic",
+    "immediate_actions": [
+      "pause repetitive AI/DeepSeek template publishing",
+      "audit folded content patterns before next public post",
+      "rewrite next 3 L4 outputs with evidence-first human judgment",
+      "track folded_count daily until it stops increasing"
+    ],
+    "pre_publish_requirements": [
+      "concrete human scenario or first-hand test context",
+      "clear opinion with tradeoffs, not generic pros/cons",
+      "no mechanical numbered-list template unless the question demands it",
+      "product insertion must follow a real use case, not appear as an ad block",
+      "platform AI disclosure rules respected when applicable"
+    ]
+  },
+  "anti_ai_detection_workflow": {
+    "rules_file": "/Users/daxian/Desktop/zhihu/accounts/anti-ai-detection-writing-rules.md",
+    "goal": "avoid being identified as AI-created content by producing evidence-rich, opinionated, non-template human-style work before AI polishing",
+    "publish_gate": [
+      "specific human scenario",
+      "clear non-neutral judgment",
+      "verifiable detail or example",
+      "natural uneven structure",
+      "no generic AI opening/closing phrases",
+      "no hard-sell product block"
+    ]
+  }
+}

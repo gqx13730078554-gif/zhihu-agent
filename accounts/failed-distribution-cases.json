@@ -1,0 +1,81 @@
+{
+  "updated_at": "2026-05-01T12:25:00+08:00",
+  "purpose": "Track folded/limited/distribution-failed Zhihu content for pattern review and remediation.",
+  "usage": {
+    "when_to_add": [
+      "出现‘可能包含 AI 创作内容’折叠/警告",
+      "24h 阅读明显异常偏低且疑似被限流",
+      "用户明确指出内容像 AI 或被平台处理"
+    ],
+    "review_goal": [
+      "识别开头模板、结构模板、证据缺失、同质发布等共性",
+      "区分内容级问题、账号级问题、行为级问题",
+      "为恢复期改稿、改节奏、改闸门提供依据"
+    ]
+  },
+  "fields": [
+    "date",
+    "account_key",
+    "account_name",
+    "title",
+    "url",
+    "content_type",
+    "topic_or_question",
+    "publish_time",
+    "warning_or_fold_time",
+    "suspected_issue",
+    "opening_pattern",
+    "structure_pattern",
+    "evidence_present",
+    "human_scene_present",
+    "clear_stance_present",
+    "monetization_density",
+    "same_topic_recent_posts",
+    "ai_risk_signals",
+    "distribution_result_24h",
+    "interaction_result_24h",
+    "monetization_goal",
+    "decision",
+    "remediation_action",
+    "notes"
+  ],
+  "case_template": {
+    "date": "2026-05-01",
+    "account_key": "l4-current",
+    "account_name": "不要开学秦小鱼",
+    "title": "",
+    "url": "",
+    "content_type": "answer",
+    "topic_or_question": "",
+    "publish_time": "",
+    "warning_or_fold_time": "",
+    "suspected_issue": [
+      "template_opening",
+      "no_evidence",
+      "too_balanced",
+      "same_topic_burst",
+      "hard_sell"
+    ],
+    "opening_pattern": "",
+    "structure_pattern": "",
+    "evidence_present": false,
+    "human_scene_present": false,
+    "clear_stance_present": false,
+    "monetization_density": "low|medium|high",
+    "same_topic_recent_posts": 0,
+    "ai_risk_signals": [],
+    "distribution_result_24h": {
+      "reads": 0,
+      "likes": 0,
+      "comments": 0,
+      "collections": 0,
+      "shares": 0
+    },
+    "interaction_result_24h": "",
+    "monetization_goal": "traffic|conversion|self_recommend|story_pitch",
+    "decision": "rewrite|downgrade|update_old_post|stop_posting_same_pattern",
+    "remediation_action": "",
+    "notes": ""
+  },
+  "cases": []
+}

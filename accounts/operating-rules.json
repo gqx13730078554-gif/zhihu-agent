@@ -1,0 +1,17 @@
+{
+  "updated_at": "2026-04-29T22:03:00+08:00",
+  "purpose": "durable execution rules for Zhihu matrix operations",
+  "rules": [
+    "Daily memory is not durable policy; never use memory/YYYY-MM-DD.md as the only place for commitments.",
+    "User requirements, cadence changes, account strategy, domain split, validation standards, browser/Profile rules, and anti-repeat corrections must be written to MEMORY.md plus the relevant execution file/checklist.",
+    "Before each day's matrix operations, load MEMORY.md/HEARTBEAT.md and /Users/daxian/Desktop/zhihu/accounts/matrix-strategy.json, then update l4-daily.json and l6-daily.json.",
+    "If the assistant says it has recorded a rule but only wrote daily memory, the loop is not closed and must be fixed immediately.",
+    "Publishing cadence is 3-4 matrix content outputs per day: L4 2 AI/programmer monetization outputs, L6 1-2 salt/story outputs, subject to quality and user confirmation before public posting.",
+    "AI-folding is a P0 account-weight risk: if any recent content is folded for possible AI creation, pause same-template publishing until the content pattern is fixed.",
+    "AI label ratio is not enough as a safety metric. Pre-publish review must check originality, evidence, first-hand experience, repetitive structure, generic balanced phrasing, and over-dense tool/product insertion.",
+    "For the next 3 L4 outputs after an AI-folding warning, require a humanization gate: one concrete personal/use-case scene, one non-obvious opinion, one limitation or tradeoff, and at least one verifiable screenshot/test/example before publishing.",
+    "Do not try to bypass platform AI detection deceptively. If content is AI-assisted where platform rules require disclosure, keep disclosure; the fix is more original human judgment and evidence, not hidden mass generation.",
+    "Folded content must be logged with title, URL, account, reason, and remediation decision: revise, appeal, delete, or leave untouched.",
+    "Before publishing L4 content, apply /Users/daxian/Desktop/zhihu/accounts/anti-ai-detection-writing-rules.md; the goal is to avoid AI-creation identification by changing content features: concrete scene, opinion, evidence, imperfect human rhythm, and non-template structure."
+  ]
+}

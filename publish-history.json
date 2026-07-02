@@ -1,0 +1,75 @@
+{
+  "account": "不要开学秦小鱼",
+  "date": "2026-04-26",
+  "daily_summary": {
+    "answers_published": 1,
+    "answers_quota": "1/2 (Lv3)",
+    "ideas_published": 0,
+    "ideas_quota": "0/1",
+    "articles_published": 0,
+    "ai_labeled_ratio": "100% (1/1)",
+    "creation_score": 1885,
+    "level": "L3（用户核验；Lv4未确认）"
+  },
+  "published_contents": [
+    {
+      "type": "answer",
+      "title": "如何评价DeepSeek刚刚发布的DeepSeek-V4-Pro和DeepSeek-V4-Flash？",
+      "url": "https://www.zhihu.com/question/2030969489941066221/answer/2031693142047576614",
+      "question_url": "https://www.zhihu.com/question/2030969489941066221",
+      "published_at": "2026-04-26T11:16:00+08:00",
+      "word_count": 1180,
+      "heat": 709891,
+      "answers_count": 88,
+      "followers": 230,
+      "domain": "AI/科技/编程",
+      "products_planted": ["Cursor", "通义灵码"],
+      "product_categories": ["AI编程工具"],
+      "topics": ["国产大模型DeepSeek"],
+      "ai_labeled": true,
+      "quality_score": 9.0,
+      "content_type": "分享型",
+      "hook_type": "个人经历+数字冲击",
+      "status": "已发布",
+      "notes": "70万+浏览高热话题，植入AI编程工具带货，完成创作打卡任务"
+    }
+  ],
+  "daily_tasks": {
+    "creation_checkin": {
+      "status": "已完成",
+      "week": "第47期第3周",
+      "week_progress": "2/7天",
+      "reward_pool": "400万盐粒"
+    },
+    "incubation_plan": {
+      "status": "进行中",
+      "total_content": 6,
+      "deadline": "2026-05-17",
+      "days_left": 22
+    },
+    "comment_kaimai": {
+      "status": "自动参与中",
+      "requirement": "回复评论≥10字"
+    }
+  },
+  "level_verification": {
+    "current_level": "L3",
+    "verified_by": "user at 2026-04-26 17:04",
+    "correction": "此前 lv4_progress 中声称 Lv4 已达成、权益已解锁，属于未核验误报，已撤回",
+    "rule": "等级、创作分、解锁权益必须以知乎后台可复查页面为准"
+  },
+  "monetization": {
+    "goods_recommendation": {
+      "answers_with_products": 1,
+      "products": ["Cursor", "通义灵码"],
+      "estimated_commission": "待结算",
+      "status": "已植入，等待转化"
+    }
+  },
+  "next_actions": [
+    "1400 operator互动任务：评论回复",
+    "监控回答流量和赞同数",
+    "检查好物推荐点击数据"
+  ],
+  "last_updated": "2026-04-26T11:20:00+08:00"
+}

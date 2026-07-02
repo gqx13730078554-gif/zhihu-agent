@@ -1,0 +1,442 @@
+{
+  "account": "不要开学秦小鱼",
+  "level": 3,
+  "creation_score": 819,
+  "daily_earnings": {
+    "date": "2026-04-25",
+    "salt_grains": {
+      "daily_checkin": 0,
+      "content_reward": 0,
+      "activity_reward": 0,
+      "total": 0,
+      "note": "今日内容已发布，收益待结算（盐粒通常在活动结束后统一发放）"
+    },
+    "cash": {
+      "commission": 0,
+      "activity_bonus": 0,
+      "total": 0,
+      "note": "好物推荐佣金需用户实际购买后结算"
+    }
+  },
+  "publish_stats": {
+    "answers_published": 2,
+    "ideas_published": 0,
+    "articles_published": 0,
+    "answers_quota_used": "2/2",
+    "ideas_quota_used": "0/1",
+    "ai_labeled_ratio": 1.0,
+    "ai_labeled_warning": "今日发布内容 AI 标注，策略要求 must_ai_label=true，合规优先。"
+  },
+  "content_performance": {
+    "DeepSeek-V4价格回答": {
+      "url": "https://www.zhihu.com/question/2030963912749924411/answer/2031449356650410653",
+      "published_at": "2026-04-25T19:07:00+08:00",
+      "views_on_question": 2187608,
+      "likes": 0,
+      "favorites": 0,
+      "comments": 0,
+      "rank_in_answers": null,
+      "total_answers_on_question": 124,
+      "score": 9.0,
+      "status": "晚场带货回答，高热话题（218万浏览），植入Cursor/通义灵码"
+    },
+    "古法编程回答": {
+      "url": "https://www.zhihu.com/question/1998164459701687089/answer/2030605699160461732",
+      "published_at": "2026-04-23T11:30:00+08:00",
+      "views_on_question": 4391,
+      "likes": 3,
+      "favorites": 1,
+      "comments": 0,
+      "rank_in_answers": 1,
+      "total_answers_on_question": 8,
+      "score": 8.7,
+      "status": "表现良好，蓝海问题排名第一"
+    },
+    "爱奇艺AI艺人库回答": {
+      "url": "https://www.zhihu.com/question/2029865698990580186/answer/2030604617579487806",
+      "published_at": "2026-04-23T12:15:00+08:00",
+      "views_on_question": 38676,
+      "likes": 1,
+      "favorites": 1,
+      "comments": 0,
+      "rank_in_answers": 1,
+      "total_answers_on_question": 33,
+      "score": 8.6,
+      "status": "问题流量大但竞争激烈，需观察后续增长"
+    }
+  },
+  "goods_recommendation": {
+    "date": "2026-04-25",
+    "total_answers_with_products": 1,
+    "products_planted": [
+      {
+        "answer_id": "2031449356650410653",
+        "question": "如何评价 DeepSeek-V4 的价格？",
+        "products": ["Cursor", "通义灵码"],
+        "publish_time": "2026-04-25T19:07:00+08:00"
+      }
+    ],
+    "estimated_commission": 0,
+    "high_potential_contents": [
+      "DeepSeek-V4价格评价（85万热度，109回答，AI工具带货最佳场景）",
+      "微软70规则自愿退休（106万热度，仅15回答，知识付费带货场景）"
+    ],
+    "note": "今日热榜发现2个高价值带货问题，AI话题热度爆发期，建议writer优先回答DeepSeek-V4和微软裁员话题并植入商品。"
+  },
+  "activity_progress": {
+    "创作打卡挑战赛": {
+      "status": "进行中",
+      "period": "第47期第3周",
+      "today_checkin_complete": true,
+      "today_tasks": "已完成",
+      "week_progress": "2/7天",
+      "week_deadline": "2026-04-30",
+      "reward_pool": "400万盐粒/周",
+      "next_action": "本周已打卡2天，继续保持"
+    },
+    "科技创作者孵化计划": {
+      "status": "内容产出中（报名已截止 4/19）",
+      "today_content_count": 1,
+      "total_content_count": 6,
+      "deadline": "2026-05-17",
+      "days_left": 21,
+      "note": "今日已发布DeepSeek-V4回答，绑定科技话题"
+    },
+    "评论区开麦计划": {
+      "status": "自动参与中",
+      "reward": "300万盐粒池",
+      "requirement": "回复评论≥10字",
+      "note": "持续关注评论区"
+    }
+  },
+  "active_activities": [
+    {"name": "科技创作者孵化计划", "period": "4/10 - 5/21", "type": "现金+流量", "status": "参与中", "deadline_days": 22, "domain_match": true, "priority": "P0"},
+    {"name": "知友探真｜关于减肥的那些真相", "period": "4/16 - 5/15", "type": "圆桌活动", "status": "投放中", "deadline_days": 20, "domain_match": false, "priority": "P3"},
+    {"name": "读书日「想把这本书送给小时候」", "period": "4/20 - 4/30", "type": "话题活动", "status": "投放中", "deadline_days": 5, "domain_match": false, "priority": "P3", "urgent": true},
+    {"name": "我一个人吃饭", "period": "4/21 - 5/7", "type": "话题活动", "status": "投放中", "deadline_days": 12, "domain_match": false, "priority": "P3"},
+    {"name": "产品体验征集中，升级社交体验", "period": "4/15 - 4/29", "type": "产品反馈", "status": "进行中", "deadline_days": 4, "domain_match": false, "priority": "P3", "urgent": true},
+    {"name": "扫地机劝退指南", "period": "4/20 - 5/10", "type": "话题活动", "status": "投放中", "deadline_days": 15, "domain_match": false, "priority": "P3"},
+    {"name": "户外人，你今天摸石头了吗？", "period": "4/13 - 4/27", "type": "话题活动", "status": "进行中", "deadline_days": 2, "domain_match": false, "priority": "P3", "urgent": true},
+    {"name": "人人都是创作者，新知从哪里来？", "period": "4/20 - 5/31", "type": "创作话题", "status": "进行中", "deadline_days": 36, "domain_match": true, "priority": "P2"},
+    {"name": "惊喜好礼抽不停，百万盐粒等你分", "period": "4/1 - 4/28", "type": "抽奖活动", "status": "进行中", "deadline_days": 3, "domain_match": false, "priority": "P3", "urgent": true},
+    {"name": "拼了个豆", "period": "4/15 - 5/1", "type": "话题活动", "status": "进行中", "deadline_days": 6, "domain_match": false, "priority": "P3"},
+    {"name": "出门撒野多记录，定格快乐赢相机", "period": "4/13 - 5/17", "type": "摄影活动", "status": "进行中", "deadline_days": 22, "domain_match": false, "priority": "P3"},
+    {"name": "快来用细节征服所有人吧！", "period": "4/14 - 4/30", "type": "话题活动", "status": "进行中", "deadline_days": 5, "domain_match": false, "priority": "P3"},
+    {"name": "欢迎光临我的家", "period": "4/14 - 5/7", "type": "话题活动", "status": "进行中", "deadline_days": 12, "domain_match": false, "priority": "P3"},
+    {"name": "家的万物生长", "period": "3/30 - 5/12", "type": "圆桌活动", "status": "进行中", "deadline_days": 17, "domain_match": false, "priority": "P3"}
+  ],
+  "monetization_channels": {
+    "好物推荐": {
+      "status": "已解锁（Lv3）",
+      "strategy": "在AI/编程相关回答中自然植入商品链接",
+      "top_categories": ["AI编程工具", "云服务器", "机械键盘", "编程书籍"],
+      "today_planted": 0,
+      "best_questions_for_products": [
+        "如何评价DeepSeek-V4的价格？（109回答，85万热度）— 今日最佳带货",
+        "微软70规则自愿退休（15回答，106万热度）— 知识付费带货",
+        "为什么苹果总出现糟糕设计（54回答，56万热度）— 数码带货"
+      ]
+    },
+    "芝士平台品牌任务": {
+      "status": "Lv4入驻（当前Lv3）",
+      "creation_score_needed": 1000,
+      "current_score": 819,
+      "gap": 181,
+      "note": "距入驻门槛还差181分，冲刺Lv4后（预估1-2天）可入驻"
+    },
+    "付费咨询": {
+      "status": "Lv4解锁（当前Lv3）",
+      "note": "升级Lv4后可开通"
+    },
+    "内容自荐": {
+      "status": "Lv4解锁（当前Lv3）",
+      "note": "升级Lv4后每月3次，候选：古法编程回答"
+    }
+  },
+  "official_accounts_scan": {
+    "知乎创作者": "状态未确认",
+    "知乎科技": "已关注",
+    "知乎职场": "状态未确认",
+    "芝士平台": "Lv3未达入驻门槛",
+    "new_tasks_found": false,
+    "投放计划_active": [
+      "读书日-想把这本书送给小时候",
+      "2026北京车展",
+      "2025年度新知答主",
+      "知友探真-关于减肥的那些真相",
+      "我一个人吃饭",
+      "AI简历分析大师（广告）"
+    ]
+  },
+  "urgent_deadlines": [
+    {"activity": "户外人摸石头", "deadline": "2026-04-27", "days_left": 2, "domain_match": false, "action": "跨领域，跳过"},
+    {"activity": "惊喜好礼抽不停", "deadline": "2026-04-28", "days_left": 3, "domain_match": false, "action": "盐粒抽奖，可顺带参与"},
+    {"activity": "产品体验征集中", "deadline": "2026-04-29", "days_left": 4, "domain_match": false, "action": "跨领域，跳过"},
+    {"activity": "读书日-想把这本书送给小时候", "deadline": "2026-04-30", "days_left": 5, "domain_match": false, "action": "跨领域，但话题活跃度高，可考虑参与"},
+    {"activity": "快来用细节征服所有人", "deadline": "2026-04-30", "days_left": 5, "domain_match": false, "action": "话题活动，跨领域"}
+  ],
+  "compliance_notes": [
+    "⚠️ AI 标注比例 100%（2/2），超过 30% 建议上限。策略 must_ai_label=true 优先，合规无问题。",
+    "⚠️ 发布数：回答 2/2 ✅，想法 0/1（草稿待手动发布）。未超限。",
+    "⚠️ 爱奇艺回答涉及娱乐/法律领域，存在轻微跨领域风险。",
+    "⚠️ 今日无好物推荐植入，错失变现机会。",
+    "✅ 创作分从 618→819，增长 201 分！冲刺 Lv4 进度良好。",
+    "✅ 两篇回答均 ≥300 字，符合 min_answer_words 要求。",
+    "✅ 发布时间 11:30/12:15，在最佳窗口 10:00-12:00 内。"
+  ],
+  "lv4_progress": {
+    "current_score": 1885,
+    "target_score": 1000,
+    "gap": 0,
+    "today_gain": 1066,
+    "eta_days": 0,
+    "status": "已达成Lv4！创作分1885 > 门槛1000"
+  },
+  "recommended_topics": [
+    {
+      "title": "如何评价 DeepSeek V4 Pro 官网限时 2.5 折优惠和缓存永久大降价？",
+      "url": "https://www.zhihu.com/question/2031494133160861736",
+      "heat": 9380000,
+      "answers": 131,
+      "views": 1709525,
+      "followers": 449,
+      "domain_match": "AI/编程/科技",
+      "priority": "P0-首选",
+      "product_categories": ["Cursor", "通义灵码", "云服务器", "API服务", "编程书籍"],
+      "estimated_commission": "中高（10-30%）",
+      "reason": "今日热榜第1，938万热度，170万+浏览。话题核心围绕价格优惠，天然带货场景。开发者关注API成本，可植入云服务对比。回答中已有Cursor/昇腾950讨论，衔接自然。",
+      "verified": true,
+      "discovered_at": "2026-04-27T10:00:00+08:00"
+    },
+    {
+      "title": "GPT-Image-2 图片很难一眼看出 AI 味，颠覆了有图有真相的认知，那普通人怎样才能鉴别真假？",
+      "url": "https://www.zhihu.com/question/2031001231607296969",
+      "heat": 1430000,
+      "answers": 38,
+      "views": 221229,
+      "followers": 114,
+      "domain_match": "AI/科技",
+      "priority": "P1-次选",
+      "product_categories": ["AI图像检测工具", "AI绘画课程", "图像处理软件"],
+      "estimated_commission": "中（10-20%）",
+      "reason": "热榜第7，143万热度，GPT-Image-2搜索量272万。回答已提及Decopy AI等检测工具，可自然植入产品对比。程序员/设计师关注度高，工具类商品转化路径清晰。",
+      "verified": true,
+      "discovered_at": "2026-04-27T10:00:00+08:00"
+    },
+    {
+      "title": "美国众议院通过《硬件技术控制多边协同法案》等多项出口管制法案，其正式发布后会对全球经贸有何影响？",
+      "url": "https://www.zhihu.com/question/2031737879139980661",
+      "heat": 1490000,
+      "answers": 70,
+      "views": 389228,
+      "followers": 246,
+      "domain_match": "科技/半导体",
+      "priority": "P2-备选",
+      "product_categories": ["国产云服务器", "华为昇腾相关", "国产替代软硬件"],
+      "estimated_commission": "中（5-15%）",
+      "reason": "热榜第5，149万热度。回答大量讨论华为昇腾/海光/平头哥等国产芯片，可切入国产替代角度植入国产云服务。话题偏宏观，需巧妙切入带货。",
+      "verified": true,
+      "discovered_at": "2026-04-27T10:00:00+08:00"
+    }
+  ],
+  "keyword_analysis": [
+    {
+      "keyword": "DeepSeek V4",
+      "search_volume": "375万（知乎热搜）",
+      "competition": "高",
+      "relevant_questions": "如何评价DeepSeek-V4的价格？（85万热度，109回答）",
+      "note": "今日最热AI话题，V4预览版+开源，流量峰值期，带货首选关键词"
+    },
+    {
+      "keyword": "GPT-5.5",
+      "search_volume": "235万（知乎热搜）",
+      "competition": "高",
+      "relevant_questions": "暂无独立热榜问题，讨论分散在多个AI问题下",
+      "note": "OpenAI新模型发布，搜索量激增，可在AI相关问题中自然引用"
+    },
+    {
+      "keyword": "GPT-Image-2",
+      "search_volume": "272万（知乎热搜）",
+      "competition": "高",
+      "relevant_questions": "暂无独立热榜问题",
+      "note": "AI图像生成工具，程序员关注度高，可在AI/设计话题中植入"
+    },
+    {
+      "keyword": "AI编程工具",
+      "search_volume": "持续高位",
+      "competition": "中",
+      "relevant_questions": "多个AI相关问题可植入（DeepSeek-V4、微软裁员等）",
+      "note": "Cursor/通义灵码/Copilot带货场景丰富，佣金稳定"
+    },
+    {
+      "keyword": "Copilot",
+      "search_volume": "上升中",
+      "competition": "中",
+      "relevant_questions": "微软裁员讨论中多次提及（106万热度）",
+      "note": "微软AI资本支出话题中自然关联，带货转化路径清晰"
+    },
+    {
+      "keyword": "Mac配件/机械键盘",
+      "search_volume": "稳定高位",
+      "competition": "中高",
+      "relevant_questions": "苹果糟糕设计（56万热度，54回答）",
+      "note": "程序员刚需，鼠标/键盘/显示器植入场景明确"
+    },
+    {
+      "keyword": "云服务器",
+      "search_volume": "上升",
+      "competition": "中",
+      "relevant_questions": "DeepSeek话题中可自然植入",
+      "note": "部署AI服务场景强关联，阿里云/天翼云广告已出现在相关页面"
+    },
+    {
+      "keyword": "AI裁员/替代",
+      "search_volume": "飙升",
+      "competition": "低",
+      "relevant_questions": "微软70规则（106万热度，仅15回答）",
+      "note": "焦虑型话题，知识付费植入空间大，竞争极低窗口期"
+    },
+    {
+      "keyword": "程序员职业发展",
+      "search_volume": "稳定",
+      "competition": "中",
+      "relevant_questions": "实习被迫喝酒（75万热度）",
+      "note": "职场新人痛点明确，书籍/课程带货方向"
+    }
+  ],
+  "daily_review": {
+    "date": "2026-04-25",
+    "revenue": {
+      "goods_commission": {
+        "yesterday": 0,
+        "today": 0,
+        "change": 0,
+        "status": "今日无新出单",
+        "note": "好物推荐持续追踪中，已植入2篇（机械键盘+AI工具），首单待突破"
+      },
+      "continuous_zero_days": 1,
+      "warning": "连续1天零出单，属正常范围（<3天），持续观察"
+    },
+    "publishing": {
+      "answers_today": 1,
+      "answers_quota": "1/2",
+      "ai_label_ratio": "100%",
+      "goods_planted": 1,
+      "best_content": "DeepSeek-V4价格回答（高热218万浏览，植入Cursor+通义灵码）"
+    },
+    "activities": {
+      "checked": ["科技创作者孵化计划", "评论区开麦计划"],
+      "warning": "创作打卡第3周明天（4/26）截止，务必完成！"
+    }
+  },
+  "today_summary": {
+    "date": "2026-04-26",
+    "achievement": "✅ Lv4达成！创作分1885",
+    "published": [
+      "DeepSeek-V4-Pro回答（70万热度，植入Cursor+通义灵码）"
+    ],
+    "tasks_completed": [
+      "创作打卡第3周完成",
+      "好物推荐植入完成",
+      "科技创作者孵化计划+1内容"
+    ]
+  },
+  "next_actions": [
+    "1400 operator互动任务：评论回复",
+    "监控回答流量和赞同数",
+    "检查好物推荐点击数据"
+  ],
+  "daily_review": {
+    "date": "2026-04-29",
+    "revenue": {
+      "goods_commission": {
+        "yesterday": 0,
+        "today": 0,
+        "change": 0,
+        "status": "今日无新出单",
+        "note": "好物推荐收益持续为0"
+      },
+      "continuous_zero_days": 3,
+      "warning": "连续3天零出单，已触发观察阈值"
+    },
+    "publishing": {
+      "answers_today": 0,
+      "answers_quota": "0/2",
+      "ai_label_ratio": "—",
+      "goods_planted": 0,
+      "data_status": "activity-earnings.json 已核验（2026-04-29）",
+      "note": "今日无新发布，最近发布为21小时前（属4/28）"
+    },
+    "compliance": {
+      "creation_checkin": "待核验",
+      "comment_kaimai": "自动参与中",
+      "folded_contents": 4,
+      "folded_warning": "创作中心警告：近期4条内容被折叠"
+    },
+    "anomalies": [
+      "内容折叠率过高（4条），需排查原因",
+      "致知计划未开通（not_activated）",
+      "今日无发布，创作打卡可能中断",
+      "连续3天零出单"
+    ],
+    "next_day_plan": {
+      "P0_must_do": [
+        "发布1篇带货回答（DeepSeek话题+创作打卡）",
+        "排查4条内容被折叠原因",
+        "开通致知计划（创作中心→去开通）"
+      ],
+      "P1_important": [
+        "检查被折叠内容具体原因（AI标注/质量/违规）",
+        "核验创作打卡本周进度"
+      ],
+      "P2_optional": [
+        "监控昨日DeepSeek回答数据增长"
+      ]
+    }
+  },
+  "last_updated": "2026-04-29T20:00:00+08:00",
+  "_historical_daily_review": {
+    "2026-04-27": {
+    "revenue": {
+      "goods_commission": {
+        "yesterday": 0,
+        "today": 0,
+        "change": 0,
+        "status": "今日无新出单",
+        "note": "今日无发布，自然无新植入"
+      },
+      "continuous_zero_days": 2,
+      "warning": "连续2天零出单，属正常范围（<3天），持续观察"
+    },
+    "publishing": {
+      "answers_today": 0,
+      "answers_quota": "待核验",
+      "ai_label_ratio": "—",
+      "goods_planted": 0,
+      "data_status": "publish-history.json 未同步今日数据"
+    },
+    "compliance": {
+      "creation_checkin": "待核验",
+      "comment_kaimai": "自动参与中"
+    },
+    "anomalies": [
+      "publish-history.json 数据停留在2026-04-26",
+      "今日发布记录缺失，需确认writer任务状态"
+    ],
+    "next_day_plan": {
+      "P0_must_do": [
+        "创作打卡第3周第4天任务（直接影响盐粒收益）",
+        "发布1篇带货回答（DeepSeek-V4话题，热榜窗口期）",
+        "确认Lv4权益解锁状态（知乎后台可复查）"
+      ],
+      "P1_important": [
+        "同步publish-history.json数据管道",
+        "检查好物推荐点击/转化数据"
+      ],
+      "P2_optional": [
+        "监控昨日DeepSeek-V4-Pro回答数据表现"
+      ]
+    }
+  },
+  "last_updated": "2026-04-26T21:35:00+08:00"
+}
