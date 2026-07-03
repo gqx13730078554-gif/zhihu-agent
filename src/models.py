@@ -111,7 +111,7 @@ class Content:
     """内容"""
     id: str
     account_key: str
-    topic: Topic
+    topic: Optional[Topic]
     content_type: str                     # answer / article / idea
     title: str
     body: str
@@ -121,6 +121,7 @@ class Content:
     ai_label: bool = False
     anti_ai_checks: Dict[str, bool] = field(default_factory=dict)
     anti_ai_score: float = 0.0
+    risk_score: float = 0.0
     
     # 辩论记录（借鉴TradingAgents）
     debate_history: str = ""

@@ -1,11 +1,15 @@
 """
 知乎 Agent 系统 - 主入口
+
+核心流程：
+1. 选题 → 2. 生成 → 3. 辩论审查 → 4. 风控 → 5. 等待用户确认 → 6. 发布
+   ↑ 存在问题则回到 3 重新辩论 ←──────────────────────────────────────┘
 """
 import asyncio
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 from .models import Account, AccountLevel, AccountRole, Content, ContentStatus, RiskState
 from .researcher import ResearcherAgent
@@ -14,6 +18,10 @@ from .debate_engine import DebateEngine
 from .safety_gate import SafetyGate
 from .publisher import PublishingScheduler
 from .operator import InteractionEngine, RevenueTracker
+
+
+# 待确认内容存储路径
+PENDING_FILE = Path("data/pending_contents.json")
 
 
 class ZhihuAgentSystem:
@@ -82,7 +90,11 @@ class ZhihuAgentSystem:
         ]
     
     async def run_daily_pipeline(self):
-        """运行日常流水线"""
+        """运行日常流水线（生成 → 辩论 → 风控 → 等待确认）
+        
+        核心约束：生成后不自动发布，必须等待用户确认。
+        存在问题则重新辩论，直到通过风控。
+        """
         print("\n" + "="*60)
         print(f"📅 开始日常流水线 - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
         print("="*60)
@@ -92,54 +104,195 @@ class ZhihuAgentSystem:
         topic_recommendations = await self.researcher.run()
         print(f"✅ 生成 {sum(len(v['recommendations']) for v in topic_recommendations.values())} 个选题推荐")
         
-        # Step 2: 写作（模拟）
-        print("\n✍️  Step 2: 内容工厂")
+        # Step 2: 写作 + 辩论审查
+        print("\n✍️  Step 2: 内容工厂 + 辩论审查")
         drafts = await self._generate_drafts(topic_recommendations)
         print(f"✅ 生成 {len(drafts)} 篇内容草稿")
         
-        # Step 3: 风控检查
+        # Step 3: 风控检查（不通过则重新辩论）
         print("\n🛡️  Step 3: 风控闸门")
-        approved_contents = []
-        for content in drafts:
-            account = next(a for a in self.accounts if a.key == content.account_key)
-            result = self.safety_gate.check(content, account)
-            
-            if result.passed:
-                content.status = ContentStatus.APPROVED
-                approved_contents.append(content)
-                print(f"  ✅ {content.title[:30]}... (得分: {result.score:.1f})")
-            else:
-                content.status = ContentStatus.REJECTED
-                print(f"  ❌ {content.title[:30]}... (得分: {result.score:.1f})")
-                for issue in result.issues:
-                    print(f"     - {issue}")
+        final_drafts = await self._safety_check_with_retry(drafts)
         
-        # Step 4: 发布调度
-        print("\n📤 Step 4: 发布调度")
-        publish_plans = await self.publisher.run(approved_contents)
-        print(f"✅ 完成 {len(publish_plans)} 篇发布")
-        
-        # Step 5: 互动运营
-        print("\n💬 Step 5: 互动引擎")
-        for account in self.accounts:
-            account_contents = [c for c in approved_contents if c.account_key == account.key]
-            
-            # 回复评论
-            for content in account_contents:
-                await self.operator.reply_to_comments(content, account)
-            
-            # 生成日报
-            report = await self.operator.generate_daily_report(account, account_contents)
-            print(f"\n📊 {account.name} 日报:")
-            print(f"   发布: {report.metrics.contents_published} 篇")
-            print(f"   阅读: {report.metrics.total_reads}")
-            print(f"   赞同: {report.metrics.total_upvotes}")
-            print(f"   风控: {report.risk_observation}")
-            print(f"   收益: {report.revenue_analysis}")
+        # Step 4: 保存到待确认队列（不发布！）
+        print("\n⏸️  Step 4: 保存到待确认队列")
+        self._save_pending(final_drafts)
+        print(f"⏸️  {len(final_drafts)} 篇内容等待用户确认")
+        print("   ⚠️  不会自动发布，等待用户确认后执行 publish_confirmed()")
         
         print("\n" + "="*60)
-        print("✅ 日常流水线完成")
+        print("✅ 日常流水线完成（等待确认阶段）")
         print("="*60)
+        
+        return final_drafts
+    
+    async def _safety_check_with_retry(
+        self, drafts: List[Content], max_retries: int = 3
+    ) -> List[Content]:
+        """风控检查 + 不通过则重新辩论（最多重试max_retries次）"""
+        final = []
+        
+        for content in drafts:
+            account = next(a for a in self.accounts if a.key == content.account_key)
+            
+            for attempt in range(max_retries + 1):
+                result = self.safety_gate.check(content, account)
+                
+                if result.passed:
+                    content.status = ContentStatus.PENDING_REVIEW
+                    final.append(content)
+                    print(f"  ✅ {content.title[:30]}... (得分: {result.score:.1f})")
+                    break
+                
+                # 不通过 → 重新辩论
+                if attempt < max_retries:
+                    print(f"  🔄 {content.title[:30]}... 风控未过({result.score:.1f})，第{attempt+1}次重新辩论")
+                    debate_result = self.debate_engine.debate(content.body)
+                    content.body = debate_result["improved_content"]
+                    content.debate_history += "\n--- 重新辩论 ---\n" + debate_result["debate_state"].history
+                    content.debate_verdict = debate_result["verdict"]
+                else:
+                    # 超过重试次数，标记为拒绝
+                    content.status = ContentStatus.REJECTED
+                    print(f"  ❌ {content.title[:30]}... 风控未过({result.score:.1f})，已放弃")
+                    for issue in result.issues:
+                        print(f"     - {issue}")
+        
+        return final
+    
+    def _save_pending(self, drafts: List[Content]):
+        """保存待确认内容到文件"""
+        PENDING_FILE.parent.mkdir(parents=True, exist_ok=True)
+        
+        pending_data = []
+        for content in drafts:
+            pending_data.append({
+                "id": content.id,
+                "account_key": content.account_key,
+                "topic": content.topic.title if content.topic else "",
+                "title": content.title,
+                "body": content.body,
+                "word_count": content.word_count,
+                "risk_score": content.risk_score,
+                "debate_verdict": content.debate_verdict,
+                "created_at": datetime.now().isoformat(),
+            })
+        
+        PENDING_FILE.write_text(json.dumps(pending_data, ensure_ascii=False, indent=2))
+        print(f"  💾 已保存到 {PENDING_FILE}")
+    
+    async def publish_confirmed(self) -> List[Content]:
+        """用户确认后发布待确认内容
+        
+        调用方式：用户回复"发布"后触发此方法
+        """
+        if not PENDING_FILE.exists():
+            print("⚠️ 没有待确认的内容")
+            return []
+        
+        # 读取待确认内容
+        pending_data = json.loads(PENDING_FILE.read_text())
+        if not pending_data:
+            print("⚠️ 待确认队列为空")
+            return []
+        
+        print(f"\n📤 用户确认发布 {len(pending_data)} 篇内容")
+        
+        # 重建Content对象
+        confirmed_contents = []
+        for data in pending_data:
+            account = next((a for a in self.accounts if a.key == data["account_key"]), None)
+            if not account:
+                continue
+            
+            content = Content(
+                id=data["id"],
+                account_key=data["account_key"],
+                topic=None,
+                content_type="answer",
+                title=data["title"],
+                body=data["body"],
+                word_count=data["word_count"],
+            )
+            content.status = ContentStatus.APPROVED
+            confirmed_contents.append(content)
+        
+        # 发布
+        print("\n📤 发布调度")
+        publish_plans = await self.publisher.run(confirmed_contents)
+        print(f"✅ 完成 {len(publish_plans)} 篇发布")
+        
+        # 清空待确认队列
+        PENDING_FILE.write_text("[]")
+        print("🗑️ 待确认队列已清空")
+        
+        return confirmed_contents
+    
+    async def reject_and_rework(self, content_ids: Optional[List[str]] = None):
+        """拒绝指定内容并触发重新辩论
+        
+        如果content_ids为None，拒绝所有待确认内容
+        """
+        if not PENDING_FILE.exists():
+            print("⚠️ 没有待确认的内容")
+            return
+        
+        pending_data = json.loads(PENDING_FILE.read_text())
+        
+        if content_ids is None:
+            # 拒绝全部
+            rejected = pending_data
+            remaining = []
+        else:
+            rejected = [d for d in pending_data if d["id"] in content_ids]
+            remaining = [d for d in pending_data if d["id"] not in content_ids]
+        
+        print(f"\n🔄 拒绝 {len(rejected)} 篇内容，触发重新辩论")
+        
+        # 重新辩论
+        reworked = []
+        for data in rejected:
+            account = next((a for a in self.accounts if a.key == data["account_key"]), None)
+            if not account:
+                continue
+            
+            content = Content(
+                id=data["id"],
+                account_key=data["account_key"],
+                topic=None,
+                content_type="answer",
+                title=data["title"],
+                body=data["body"],
+                word_count=data["word_count"],
+            )
+            
+            # 重新辩论
+            debate_result = self.debate_engine.debate(content.body)
+            content.body = debate_result["improved_content"]
+            content.debate_history = debate_result["debate_state"].history
+            content.debate_verdict = debate_result["verdict"]
+            content.status = ContentStatus.PENDING_REVIEW
+            reworked.append(content)
+            print(f"  🔄 重新辩论: {content.title[:30]}...")
+        
+        # 风控检查
+        if reworked:
+            final = await self._safety_check_with_retry(reworked)
+            # 合并到待确认队列
+            remaining_data = remaining
+            for content in final:
+                remaining_data.append({
+                    "id": content.id,
+                    "account_key": content.account_key,
+                    "topic": "",
+                    "title": content.title,
+                    "body": content.body,
+                    "word_count": content.word_count,
+                    "risk_score": content.risk_score,
+                    "debate_verdict": content.debate_verdict,
+                    "created_at": datetime.now().isoformat(),
+                })
+            PENDING_FILE.write_text(json.dumps(remaining_data, ensure_ascii=False, indent=2))
+            print(f"✅ {len(final)} 篇重新辩论完成，已更新待确认队列")
     
     async def _generate_drafts(self, topic_recommendations: dict) -> List[Content]:
         """生成内容草稿（使用高级内容生成器）"""
